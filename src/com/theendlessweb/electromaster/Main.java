@@ -85,8 +85,4 @@ public class Main extends JavaPlugin {
 		        return;
 		    }
 	 }	
-<<<<<<< HEAD
-}	 
-=======
-}	 
->>>>>>> 9d1d53fc0ce3dbf8153bfd7e405ba9b85a6b1f7c
+}
