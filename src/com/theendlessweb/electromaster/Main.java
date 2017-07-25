@@ -28,11 +28,11 @@ public class Main extends JavaPlugin {
 	 	private Connection connection;
 	    private String host, database, username, password;
 	    private int port;
-	    Map<UUID, Long> users;
+	    private Map<UUID, Long> users;
 
 	@Override
 	public void onEnable() {
-		users = new HashMap<UUID, Long>();
+		users = new HashMap<UUID, Long>(); 
 		host = "localhost";
 		port = 3306;
 		database = "TestDatabase";
@@ -60,7 +60,7 @@ public class Main extends JavaPlugin {
 				String label,
 				String[] args) {
 			if (command.getName().equalsIgnoreCase("worldnews")) {
-				sender.sendMessage("You ran /mycommand!");
+				sender.sendMessage("§eYou ran /mycommand!");
 				return true;
 			}
 			else if(command.getName().equalsIgnoreCase("eat")){
@@ -71,7 +71,7 @@ public class Main extends JavaPlugin {
 					return true;
 					
 				}else{
-					sender.sendMessage("Invalid syntax for this command, use /eat.");
+					sender.sendMessage("§4Invalid syntax for this command, use /eat.");
 					return false;
 				}
 			}
@@ -95,12 +95,12 @@ public class Main extends JavaPlugin {
 	                    return true;
 					}
 				}else{
-					sender.sendMessage("Invalid syntax for this command. Use /jihad.");
+					sender.sendMessage("§4Invalid syntax for this command. Use /jihad.");
 					return false;
 				}
 			
 			}
-			else if(command.getName().equalsIgnoreCase("goditems")){
+			else if(command.getName().equalsIgnoreCase("sword")){
 				if(sender instanceof Player && args.length == 0){
 					if((users.get(((Player) sender).getUniqueId()) == null)){
 						ItemStack sword = new ItemStack(Material.DIAMOND_SWORD, 64);
@@ -117,6 +117,8 @@ public class Main extends JavaPlugin {
 						((Player) sender).getInventory().addItem(sword);
 						
 					}
+				}else{
+					sender.sendMessage("§4Invalid syntax for this command. Use /goditems.");
 				}
 			}
 			return false;
@@ -126,7 +128,7 @@ public class Main extends JavaPlugin {
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event){
 		Player player = event.getPlayer();
-		// Do something here later.
+		player.sendMessage("§ewrite /help.");
 	}
 	
 	 public void openConnection() throws SQLException, ClassNotFoundException {
