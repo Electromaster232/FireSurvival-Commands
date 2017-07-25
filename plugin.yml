@@ -4,7 +4,7 @@ version: 1.0
 author: xxq/Electromaster
 description: The custom commands plugin created for FireSurvival
 commands:
-  jihad:
+  supertnt:
     description: Super TNT
     usage: /mycommand
     permission: customcommands.supertnt
