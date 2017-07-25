@@ -6,7 +6,17 @@ description: The custom commands plugin created for FireSurvival
 commands:
   supertnt:
     description: Super TNT
-    usage: /mycommand
+    usage: /supertnt
     permission: customcommands.supertnt
+    permission-message: You don't have the required permission node. Contact staff if you believe this is in error.
+  sword:
+    description: Get Electromaster's God Sword
+    usage: /sword
+    permission: customcommands.sword
+    permission-message: You don't have the required permission node. Contact staff if you believe this is in error.
+  eat:
+    description: Fill ye hungah.
+    usage: /eat
+    permission: customcommands.eat
     permission-message: You don't have the required permission node. Contact staff if you believe this is in error.
   
