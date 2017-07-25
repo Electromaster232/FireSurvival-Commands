@@ -60,7 +60,7 @@ public class Main extends JavaPlugin {
 				String label,
 				String[] args) {
 			if (command.getName().equalsIgnoreCase("worldnews")) {
-				sender.sendMessage("§eYou ran /mycommand!");
+				sender.sendMessage("Â§eYou ran /mycommand!");
 				return true;
 			}
 			else if(command.getName().equalsIgnoreCase("eat")){
@@ -71,13 +71,13 @@ public class Main extends JavaPlugin {
 					return true;
 					
 				}else{
-					sender.sendMessage("§4Invalid syntax for this command, use /eat.");
+					sender.sendMessage("Â§4Invalid syntax for this command, use /eat.");
 					return false;
 				}
 			}
 			
 			//next command here.
-			else if(command.getName().equalsIgnoreCase("jihad")){
+			else if(command.getName().equalsIgnoreCase("supertnt")){
 				if(sender instanceof Player && args.length == 0){
 					if ((users.get(((Player) sender).getUniqueId()) == null)) {
 						ItemStack tnt = new ItemStack(Material.TNT, 64);
@@ -95,7 +95,7 @@ public class Main extends JavaPlugin {
 	                    return true;
 					}
 				}else{
-					sender.sendMessage("§4Invalid syntax for this command. Use /jihad.");
+					sender.sendMessage("Â§4Invalid syntax for this command. Use /jihad.");
 					return false;
 				}
 			
@@ -118,7 +118,7 @@ public class Main extends JavaPlugin {
 						
 					}
 				}else{
-					sender.sendMessage("§4Invalid syntax for this command. Use /goditems.");
+					sender.sendMessage("Â§4Invalid syntax for this command. Use /goditems.");
 				}
 			}
 			return false;
@@ -128,7 +128,7 @@ public class Main extends JavaPlugin {
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event){
 		Player player = event.getPlayer();
-		player.sendMessage("§ewrite /help.");
+		player.sendMessage("Â§ewrite /help.");
 	}
 	
 	 public void openConnection() throws SQLException, ClassNotFoundException {
