@@ -1,11 +1,12 @@
 main: com.theendlessweb.electromaster.Main
-name: MyPlugin
+name: CustomCommands
 version: 1.0
-author: me
-description: An Example plugin
+author: xxq/Electromaster
+description: The custom commands plugin created for FireSurvival
 commands:
-  mycommand:
-    description: An example command
+  jihad:
+    description: Super TNT
     usage: /mycommand
-    permission: myplugin.mycommand
-    permission-message: You don't have the myplugin.mycommand permission.
+    permission: customcommands.supertnt
+    permission-message: You don't have the required permission node. Contact staff if you believe this is in error.
+  
