@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.bukkit.Material;
+import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
@@ -17,6 +18,8 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import net.md_5.bungee.api.ChatColor;
 
 
 /* 
@@ -29,6 +32,7 @@ public class Main extends JavaPlugin {
 	    private String host, database, username, password;
 	    private int port;
 	    private Map<UUID, Long> users;
+	    public static final String PLUGIN_VERSION = "1.2";
 
 	@Override
 	public void onEnable() {
@@ -66,16 +70,14 @@ public class Main extends JavaPlugin {
 			else if(command.getName().equalsIgnoreCase("eat")){
 				if(sender instanceof Player && args.length == 0){
 					Player player = (Player) sender;
-					player.setSaturation(20.0F);
+					player.setSaturation(40.0F);
 					player.setFoodLevel(20);
+					player.setHealth(20.0F);
+					sender.sendMessage(ccMsg("Your player has been restored."));
 					return true;
 					
 				}else{
-<<<<<<< HEAD
-					sender.sendMessage("ง4[CustomCommands] Invalid syntax for this command, use /eat.");
-=======
-					sender.sendMessage("ยง4[CustomCommands] Invalid syntax for this command, use /eat.");
->>>>>>> 3d20501a1c1d79e2e8999ee8af1c4fec99bfb39d
+					sender.sendMessage(ccErrMsg("Invalid syntax!"));
 					return false;
 				}
 			}
@@ -89,21 +91,18 @@ public class Main extends JavaPlugin {
 	                    ItemMeta lightermeta = lighter.getItemMeta();
 	                    ItemMeta TNTMeta = tnt.getItemMeta();
 	                    lightermeta.setDisplayName("xxq's Flint/Steel"); 
-	                    lightermeta.addEnchant(Enchantment.DURABILITY, 32767, false);
+	                    lightermeta.addEnchant(Enchantment.DURABILITY, 1000, false);
 	                    TNTMeta.setDisplayName("xxq's Dynamite");
-	                    TNTMeta.addEnchant(Enchantment.MENDING, 5, false);
-	                    TNTMeta.addEnchant(Enchantment.DURABILITY, 32767, false);;
+	                    TNTMeta.addEnchant(Enchantment.MENDING, 1, false);
+	                    TNTMeta.addEnchant(Enchantment.DURABILITY, 1000, false);;
 	                    tnt.setItemMeta(TNTMeta);
 	                    lighter.setItemMeta(lightermeta);
 	                    ((Player) sender).getInventory().addItem(tnt, lighter);
+	                    sender.sendMessage(ccMsg("Enjoy your TNT."));
 	                    return true;
 					}
 				}else{
-<<<<<<< HEAD
-					sender.sendMessage("ง4[CustomCommands] Invalid syntax for this command. Use /supertnt.");
-=======
-					sender.sendMessage("ยง4[CustomCommands] Invalid syntax for this command. Use /supertnt.");
->>>>>>> 3d20501a1c1d79e2e8999ee8af1c4fec99bfb39d
+					sender.sendMessage(ccErrMsg("Invalid syntax!"));
 					return false;
 				}
 			
@@ -113,35 +112,25 @@ public class Main extends JavaPlugin {
 					if((users.get(((Player) sender).getUniqueId()) == null)){
 						ItemStack sword = new ItemStack(Material.DIAMOND_SWORD, 1);
 						ItemMeta swordMeta = sword.getItemMeta();
-<<<<<<< HEAD
 						if(sender.getName() == "xxq" || sender.getName() == "lotus1983"){
 							swordMeta.setDisplayName("xxq's Abyssal Blade");
 						}else{
 							swordMeta.setDisplayName("Electromaster's God Sword");
 						}
-=======
-						swordMeta.setDisplayName("Electromaster's God Sword");
->>>>>>> 3d20501a1c1d79e2e8999ee8af1c4fec99bfb39d
-						swordMeta.addEnchant(Enchantment.DAMAGE_ALL, 32767, false); // Sharpness
-						swordMeta.addEnchant(Enchantment.DURABILITY, 32767, false); // Unbreaking
-						swordMeta.addEnchant(Enchantment.FIRE_ASPECT, 32767, false); // Fire Aspect
-						swordMeta.addEnchant(Enchantment.MENDING, 32767, false); // Mending
-						swordMeta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 10, false); // Looting for blocks
-<<<<<<< HEAD
-						swordMeta.addEnchant(Enchantment.SWEEPING_EDGE, 32767, false); // Cleaving affect
-=======
-						swordMeta.addEnchant(Enchantment.SWEEPING_EDGE, 32767, false); 
->>>>>>> 3d20501a1c1d79e2e8999ee8af1c4fec99bfb39d
+
+						swordMeta.addEnchant(Enchantment.DAMAGE_ALL, 1000, false); // Sharpness
+						swordMeta.addEnchant(Enchantment.DURABILITY, 1000, false); // Unbreaking
+						swordMeta.addEnchant(Enchantment.FIRE_ASPECT, 1000, false); // Fire Aspect
+						swordMeta.addEnchant(Enchantment.MENDING, 1000, false); // Mending
+						swordMeta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 1000, false); // Looting for block
+						swordMeta.addEnchant(Enchantment.SWEEPING_EDGE, 1000, false); // Cleaving affect
 						sword.setItemMeta(swordMeta);
 						((Player) sender).getInventory().addItem(sword);
 						
 					}
 				}else{
-<<<<<<< HEAD
-					sender.sendMessage("ง4[CustomCommands] Invalid syntax for this command. Use /goditems.");
-=======
-					sender.sendMessage("ยง4[CustomCommands] Invalid syntax for this command. Use /goditems.");
->>>>>>> 3d20501a1c1d79e2e8999ee8af1c4fec99bfb39d
+					sender.sendMessage(ccErrMsg("Invalid syntax!"));
+
 				}
 			}
 			return false;
@@ -151,7 +140,7 @@ public class Main extends JavaPlugin {
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event){
 		Player player = event.getPlayer();
-		player.sendMessage("[CustomCommands] This server is running CustomCommands V1.0. By: Electromaster and xxq");
+		player.sendMessage(ccMsg("This server is running CustomCommands v" + PLUGIN_VERSION + "."));
 	}
 	
 	 public void openConnection() throws SQLException, ClassNotFoundException {
@@ -160,9 +149,15 @@ public class Main extends JavaPlugin {
 		    }
 
 	 }	
-
 	 
-	 
+	 public String ccErrMsg(String message){
+	 	return ChatColor.BLACK + "[" + ChatColor.AQUA + "CustomCommands" + ChatColor.BLACK + "]" + " " + ChatColor.RED + message;
 	 }
+	 
+	 public String ccMsg(String message){
+		 return ChatColor.BLACK + "[" + ChatColor.AQUA + "CustomCommands" + ChatColor.BLACK + "]" + " " + ChatColor.YELLOW + message;
+	 }
+	 
 
-
+}
+ 
