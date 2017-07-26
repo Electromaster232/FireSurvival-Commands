@@ -208,7 +208,7 @@ public class Main extends JavaPlugin {
 					if((users.get(((Player) sender).getUniqueId()) == null)){
 						ItemStack axe = new ItemStack(Material.DIAMOND_AXE, 1);
 						ItemMeta axeMeta = axe.getItemMeta();
-						axeMeta.setDisplayName(Color.red + "Electromaster's God Axe of Power");
+						axeMeta.setDisplayName(Color.RED + "Electromaster's God Axe of Power");
 						axeMeta.setLore(supplierNames);
 						axeMeta.setUnbreakable(true);
 						axeMeta.addEnchant(Enchantment.DAMAGE_ALL, 32767, true); // Sharpness
