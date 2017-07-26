@@ -1,8 +1,17 @@
 # Custom Commands
-Custom commands is a lightweight plugin designed by xxq and Electromaster for the FireSurvival minecraft server
+CustomCommands is a lightweight plugin designed by xxq and Electromaster to provide some various random features that most plugins miss out on.
+
+# Features
+- /eat command to restore the player's hunger, health, and saturation.
+- /sword command to give the player an overpowered diamond sword.
+- /supertnt command to give the player some super enchanted TNT.
+
+# Installation
+
+Download the CustomCommands.jar file [link here][here] and move it into your /plugins/ folder.
+
+# Contributing
+
+To contribute, use `git clone https://github.com/Electromaster232/customcommands.git` in the git terminal and make a pull request.
 
 
-
-
-# Credits
-Thanks to MD5 for creating the awesome Spigot we know and love today. Credit to him for the Shaded JAR that you see in the main directory of this fork.
