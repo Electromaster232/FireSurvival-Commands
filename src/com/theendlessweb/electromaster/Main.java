@@ -216,6 +216,7 @@ public class Main extends JavaPlugin {
 						axeMeta.addEnchant(Enchantment.FIRE_ASPECT, 32767, true); // Fire Aspect
 						axeMeta.addEnchant(Enchantment.MENDING, 32767, true); // Mending
 						axeMeta.addEnchant(Enchantment.SWEEPING_EDGE, 32767, true); // Cleaving affect
+						axeMeta.addEnchant(Enchantment.DIG_SPEED, 32767, true);
 						axe.setItemMeta(axeMeta);
 						((Player) sender).getInventory().addItem(axe);
 						sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory."));
