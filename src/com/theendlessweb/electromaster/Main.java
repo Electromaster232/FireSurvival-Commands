@@ -28,6 +28,7 @@ import net.md_5.bungee.api.ChatColor;
 
 public class Main extends JavaPlugin {
 	
+		// some test stuff for /worldnews/
 	 	private Connection connection;
 	    private String host, database, username, password;
 	    private int port;
@@ -106,7 +107,7 @@ public class Main extends JavaPlugin {
 					return false;
 				}
 			
-			}
+			} 
 			else if(command.getName().equalsIgnoreCase("sword")){
 				if(sender instanceof Player && args.length == 0){
 					if((users.get(((Player) sender).getUniqueId()) == null)){
