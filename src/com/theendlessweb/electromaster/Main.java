@@ -127,7 +127,55 @@ public class Main extends JavaPlugin {
 					}
 				}else{
 					sender.sendMessage(ccErrMsg("Invalid syntax!"));
-
+					return false;
+				}
+			}
+			else if(command.getName().equalsIgnoreCase("armor")){
+				if(sender instanceof Player && args.length == 0){
+					if((users.get(((Player) sender).getUniqueId()) == null)){
+						ItemStack helm = new ItemStack(Material.DIAMOND_HELMET, 1);
+						ItemStack chest = new ItemStack(Material.DIAMOND_CHESTPLATE, 1);
+						ItemStack legs = new ItemStack(Material.DIAMOND_LEGGINGS, 1);
+						ItemStack boots = new ItemStack(Material.DIAMOND_BOOTS, 1);
+						
+						ItemMeta helmMeta = helm.getItemMeta();
+						ItemMeta chestMeta = chest.getItemMeta();
+						ItemMeta legsMeta = legs.getItemMeta();
+						ItemMeta bootsMeta = boots.getItemMeta();
+						
+						/* Names */
+						helmMeta.setDisplayName("Veil of Discord");
+						chestMeta.setDisplayName("Assault Cuirass");
+						legsMeta.setDisplayName("Shiva's Guard");
+						bootsMeta.setDisplayName("Boots of Travel");
+						
+						/* Protection */
+						helmMeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
+						chestMeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
+						legsMeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
+						bootsMeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
+						
+						/* Unbreaking */
+						helmMeta.addEnchant(Enchantment.DURABILITY, 3, true);
+						chestMeta.addEnchant(Enchantment.DURABILITY, 3, true);
+						legsMeta.addEnchant(Enchantment.DURABILITY, 3, true);
+						bootsMeta.addEnchant(Enchantment.DURABILITY, 3, true);
+						
+						/* Mending */
+						helmMeta.addEnchant(Enchantment.MENDING, 1, true);
+						chestMeta.addEnchant(Enchantment.MENDING, 1, true);
+						legsMeta.addEnchant(Enchantment.MENDING, 1, true);
+						bootsMeta.addEnchant(Enchantment.MENDING, 1, true);
+						
+						/* Misc */
+						helmMeta.addEnchant(Enchantment.OXYGEN, 3, true);
+						helmMeta.addEnchant(Enchantment.WATER_WORKER, 1, true);
+						bootsMeta.addEnchant(Enchantment.DEPTH_STRIDER, 3, true);
+						bootsMeta.addEnchant(Enchantment.PROTECTION_FALL, 4, true);
+						sender.sendMessage(ccMsg("Added god armor to your inventory."));
+					}
+				}else{
+					sender.sendMessage(ccErrMsg("Invalid syntax!"));
 				}
 			}
 			return false;
