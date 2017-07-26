@@ -91,14 +91,14 @@ public class Main extends JavaPlugin {
 	                    ItemMeta lightermeta = lighter.getItemMeta();
 	                    ItemMeta TNTMeta = tnt.getItemMeta();
 	                    lightermeta.setDisplayName("xxq's Flint/Steel"); 
-	                    lightermeta.addEnchant(Enchantment.DURABILITY, 1000, false);
+	                    lightermeta.addEnchant(Enchantment.DURABILITY, 3, false);
 	                    TNTMeta.setDisplayName("xxq's Dynamite");
 	                    TNTMeta.addEnchant(Enchantment.MENDING, 1, false);
-	                    TNTMeta.addEnchant(Enchantment.DURABILITY, 1000, false);;
+	                    TNTMeta.addEnchant(Enchantment.DURABILITY, 3, false);;
 	                    tnt.setItemMeta(TNTMeta);
 	                    lighter.setItemMeta(lightermeta);
 	                    ((Player) sender).getInventory().addItem(tnt, lighter);
-	                    sender.sendMessage(ccMsg("Enjoy your TNT."));
+	                    sender.sendMessage(ccMsg("Enjoy your TNT!"));
 	                    return true;
 					}
 				}else{
@@ -112,20 +112,16 @@ public class Main extends JavaPlugin {
 					if((users.get(((Player) sender).getUniqueId()) == null)){
 						ItemStack sword = new ItemStack(Material.DIAMOND_SWORD, 1);
 						ItemMeta swordMeta = sword.getItemMeta();
-						if(sender.getName() == "xxq" || sender.getName() == "lotus1983"){
-							swordMeta.setDisplayName("xxq's Abyssal Blade");
-						}else{
-							swordMeta.setDisplayName("Electromaster's God Sword");
-						}
-
-						swordMeta.addEnchant(Enchantment.DAMAGE_ALL, 1000, false); // Sharpness
-						swordMeta.addEnchant(Enchantment.DURABILITY, 1000, false); // Unbreaking
-						swordMeta.addEnchant(Enchantment.FIRE_ASPECT, 1000, false); // Fire Aspect
-						swordMeta.addEnchant(Enchantment.MENDING, 1000, false); // Mending
-						swordMeta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 1000, false); // Looting for block
-						swordMeta.addEnchant(Enchantment.SWEEPING_EDGE, 1000, false); // Cleaving affect
+						swordMeta.setDisplayName("xxq's Abyssal Blade");
+						swordMeta.setUnbreakable(true);
+						swordMeta.addEnchant(Enchantment.DAMAGE_ALL, 32767, true); // Sharpness
+						swordMeta.addEnchant(Enchantment.DURABILITY, 32767, true); // Unbreaking
+						swordMeta.addEnchant(Enchantment.FIRE_ASPECT, 32767, true); // Fire Aspect
+						swordMeta.addEnchant(Enchantment.MENDING, 32767, true); // Mending
+						swordMeta.addEnchant(Enchantment.SWEEPING_EDGE, 32767, true); // Cleaving affect
 						sword.setItemMeta(swordMeta);
 						((Player) sender).getInventory().addItem(sword);
+						sender.sendMessage(ccMsg("Added xxq's Abyssal Blade to your inventory."));
 						
 					}
 				}else{
