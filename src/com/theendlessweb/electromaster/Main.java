@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -71,7 +72,7 @@ public class Main extends JavaPlugin {
 					return true;
 					
 				}else{
-					sender.sendMessage("§4Invalid syntax for this command, use /eat.");
+					sender.sendMessage(ChatColor.RED + "Invalid syntax for this command, use /eat.");
 					return false;
 				}
 			}
@@ -95,7 +96,7 @@ public class Main extends JavaPlugin {
 	                    return true;
 					}
 				}else{
-					sender.sendMessage("§4Invalid syntax for this command. Use /jihad.");
+					sender.sendMessage(ChatColor.RED + "Invalid syntax for this command. Use /jihad.");
 					return false;
 				}
 			
@@ -118,7 +119,7 @@ public class Main extends JavaPlugin {
 						
 					}
 				}else{
-					sender.sendMessage("§4Invalid syntax for this command. Use /goditems.");
+					sender.sendMessage(ChatColor.RED + "Invalid syntax for this command. Use /goditems.");
 				}
 			}
 			return false;
@@ -128,18 +129,12 @@ public class Main extends JavaPlugin {
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event){
 		Player player = event.getPlayer();
-		player.sendMessage("§ewrite /help.");
+		player.sendMessage(ChatColor.YELLOW + "write /help.");
 	}
 	
 	 public void openConnection() throws SQLException, ClassNotFoundException {
 		    if (connection != null && !connection.isClosed()) {
 		        return;
 		    }
-<<<<<<< HEAD
-	 }	
-=======
-	 
-	 
 	 }
->>>>>>> 48a7299d97f36f9e8c351162a3b1d3602849d3de
 }
