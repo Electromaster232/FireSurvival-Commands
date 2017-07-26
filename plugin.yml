@@ -9,9 +9,9 @@ commands:
     usage: /supertnt
     permission: customcommands.supertnt
     permission-message: You don't have the required permission node. Contact staff if you believe this is in error.
-  sword:
-    description: Get Electromaster's God Sword
-    usage: /sword
+  tools:
+    description: Get God Tools
+    usage: /tools
     permission: customcommands.sword
     permission-message: You don't have the required permission node. Contact staff if you believe this is in error.
   eat:
@@ -19,4 +19,13 @@ commands:
     usage: /eat
     permission: customcommands.eat
     permission-message: You don't have the required permission node. Contact staff if you believe this is in error.
-  
+  axe:
+    description: Get Electromaster's God Axe
+    usage: /axe
+    permission: customcommands.axe
+    permission-message: You don't have the required permission node. Contact staff is you believe this is in error.
+  armor:
+    description: Get God Armor
+    usage: /armor
+    permission: customcommands.armor
+    permission-message: You don't have the required permmission node. Contact staff is you believe this is in error.
