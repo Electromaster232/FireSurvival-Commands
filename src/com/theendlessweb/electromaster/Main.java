@@ -226,7 +226,7 @@ public class Main extends JavaPlugin {
 				Player p = (Player) sender;
 				ItemStack item = p.getInventory().getItemInMainHand();
 				if(sender instanceof Player && args.length == 0){
-						if(p.getInventory().getItemInMainHand() != null){
+						if(p.getInventory().getItemInMainHand().getType() != Material.AIR){
 							if(item.getAmount() < item.getMaxStackSize() && item.getAmount() != item.getMaxStackSize()){
 								item.setAmount(item.getMaxStackSize());
 							}		
