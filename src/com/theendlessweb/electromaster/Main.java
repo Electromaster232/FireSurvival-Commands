@@ -112,7 +112,7 @@ public class Main extends JavaPlugin {
 				}
 			
 			} 
-			else if(command.getName().equalsIgnoreCase("sword")){
+			else if(command.getName().equalsIgnoreCase("tools")){
 				if(sender instanceof Player && args.length == 0){
 					if((users.get(((Player) sender).getUniqueId()) == null)){
 						ItemStack sword = new ItemStack(Material.DIAMOND_SWORD, 1);
@@ -124,13 +124,24 @@ public class Main extends JavaPlugin {
 						swordMeta.addEnchant(Enchantment.FIRE_ASPECT, 32767, true); // Fire Aspect
 						swordMeta.addEnchant(Enchantment.MENDING, 32767, true); // Mending
 						swordMeta.addEnchant(Enchantment.SWEEPING_EDGE, 32767, true); // Cleaving affect
+						ItemStack pick = new ItemStack(Material.DIAMOND_PICKAXE, 1);
+						ItemMeta pickMeta = pick.getItemMeta();
+						pickMeta.setDisplayName("Hoarfrost");
+						pickMeta.setUnbreakable(true);
+						pickMeta.addEnchant(Enchantment.DIG_SPEED, 5, true);
+						pickMeta.addEnchant(Enchantment.DURABILITY, 3, true);
+						pickMeta.addEnchant(Enchantment.SILK_TOUCH, 1, true);
+						pickMeta.addEnchant(Enchantment.MENDING, 1, true);
 						sword.setItemMeta(swordMeta);
+						pick.setItemMeta(pickMeta);
 						((Player) sender).getInventory().addItem(sword);
+						((Player) sender).getInventory().addItem(pick);
 						sender.sendMessage(ccMsg("Added xxq's Abyssal Blade to your inventory."));
+						
 						
 					}
 				}else{
-					sender.sendMessage(ccErrMsg("Invalid syntax!"));
+					sender.sendMessage(ccErrMsg("Invalid syntax!!!"));
 					return false;
 				}
 			}
@@ -176,6 +187,16 @@ public class Main extends JavaPlugin {
 						helmMeta.addEnchant(Enchantment.WATER_WORKER, 1, true);
 						bootsMeta.addEnchant(Enchantment.DEPTH_STRIDER, 3, true);
 						bootsMeta.addEnchant(Enchantment.PROTECTION_FALL, 4, true);
+						
+						helm.setItemMeta(helmMeta);
+						chest.setItemMeta(chestMeta);
+						legs.setItemMeta(legsMeta);
+						boots.setItemMeta(bootsMeta);
+						
+						((Player) sender).getInventory().addItem(helm);
+						((Player) sender).getInventory().addItem(chest);
+						((Player) sender).getInventory().addItem(legs);
+						((Player) sender).getInventory().addItem(boots);
 						sender.sendMessage(ccMsg("Added god armor to your inventory."));
 					}
 				}else{
