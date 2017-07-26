@@ -2,30 +2,35 @@ main: com.theendlessweb.electromaster.Main
 name: CustomCommands
 version: 1.0
 author: xxq/Electromaster
-description: The custom commands plugin created for FireSurvival
+description: A plugin designed to give simple item features and other simple features.
 commands:
   supertnt:
     description: Super TNT
     usage: /supertnt
     permission: customcommands.supertnt
-    permission-message: You don't have the required permission node. Contact staff if you believe this is in error.
+    permission-message: You don't have the required permission node. Contact staff if you believe this is an error.
   tools:
     description: Get God Tools
     usage: /tools
     permission: customcommands.sword
-    permission-message: You don't have the required permission node. Contact staff if you believe this is in error.
+    permission-message: You don't have the required permission node. Contact staff if you believe this is an error.
   eat:
     description: Fill ye hungah.
     usage: /eat
     permission: customcommands.eat
-    permission-message: You don't have the required permission node. Contact staff if you believe this is in error.
+    permission-message: You don't have the required permission node. Contact staff if you believe this is an error.
   axe:
     description: Get Electromaster's God Axe
     usage: /axe
     permission: customcommands.axe
-    permission-message: You don't have the required permission node. Contact staff is you believe this is in error.
+    permission-message: You don't have the required permission node. Contact staff is you believe this is an error.
   armor:
     description: Get God Armor
     usage: /armor
     permission: customcommands.armor
-    permission-message: You don't have the required permmission node. Contact staff is you believe this is in error.
+    permission-message: You don't have the required permmission node. Contact staff is you believe this is an error.
+  moar:
+    description: Makes your held item it's max stack size
+    usage: /moar
+    permission: customcommands.moar
+    permission-message: You don't have the required permission node. Contact staff if you believe this is an error.
