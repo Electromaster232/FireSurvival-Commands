@@ -32,7 +32,7 @@ public class Main extends JavaPlugin {
 	    private String host, database, username, password;
 	    private int port;
 	    private Map<UUID, Long> users;
-	    public static final String PLUGIN_VERSION = "1.2";
+	    public static final String PLUGIN_VERSION = "1.21";
 
 	@Override
 	public void onEnable() {
@@ -45,7 +45,7 @@ public class Main extends JavaPlugin {
 		try {     
 			openConnection();
 			Statement statement = connection.createStatement(); 
-			getLogger().info("Plugin enabled.");  
+			getLogger().info("CustomCommands v" + PLUGIN_VERSION + " enabled.");  
 		}catch (ClassNotFoundException e){
 			e.printStackTrace();
 		}catch (SQLException e){
@@ -55,7 +55,7 @@ public class Main extends JavaPlugin {
 
 		@Override
 		public void onDisable() {
-			getLogger().info("Plugin disabled.");
+			getLogger().info("CustomCommands v" + PLUGIN_VERSION + " disabled.");
 		}
 
 		@Override
@@ -135,12 +135,8 @@ public class Main extends JavaPlugin {
 	/* Events */
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event){
-		Player player = event.getPlayer();
-<<<<<<< HEAD
-		player.sendMessage("[CustomCommands] This server is running CustomCommands V1.0. By: Electromaster and xxq.");
-=======
-		player.sendMessage(ccMsg("This server is running CustomCommands v" + PLUGIN_VERSION + "."));
->>>>>>> da0a69ce26982e5522ca57c9b5c01adffdeb7876
+		event.getPlayer().sendMessage("[CustomCommands] This server is running CustomCommands V1.0. By: Electromaster and xxq.");
+		event.getPlayer().sendMessage(ccMsg("This server is running CustomCommands v" + PLUGIN_VERSION + "."));
 	}
 	
 	 public void openConnection() throws SQLException, ClassNotFoundException {
