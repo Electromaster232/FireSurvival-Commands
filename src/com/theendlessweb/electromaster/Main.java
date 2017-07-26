@@ -127,7 +127,7 @@ public class Main extends JavaPlugin {
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event){
 		Player player = event.getPlayer();
-		player.sendMessage("[CustomCommands] This server is running CustomCommands V1.0. By: Electromaster and xxq");
+		player.sendMessage("[CustomCommands] This server is running CustomCommands V1.0. By: Electromaster and xxq.");
 	}
 	
 	 public void openConnection() throws SQLException, ClassNotFoundException {
