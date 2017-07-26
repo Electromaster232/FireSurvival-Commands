@@ -1,9 +1,12 @@
 package com.theendlessweb.electromaster;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -34,6 +37,7 @@ public class Main extends JavaPlugin {
 	    private int port;
 	    private Map<UUID, Long> users;
 	    public static final String PLUGIN_VERSION = "1.21";
+	    List<String> supplierNames = Arrays.asList("Given by the gods.");
 
 	@Override
 	public void onEnable() {
@@ -176,6 +180,25 @@ public class Main extends JavaPlugin {
 					}
 				}else{
 					sender.sendMessage(ccErrMsg("Invalid syntax!"));
+				}
+			}
+			else if(command.getName().equalsIgnoreCase("axe")){
+				if(sender instanceof Player && args.length == 0){
+					if((users.get(((Player) sender).getUniqueId()) == null)){
+						ItemStack axe = new ItemStack(Material.DIAMOND_AXE, 1);
+						ItemMeta axeMeta = axe.getItemMeta();
+						axeMeta.setDisplayName(Color.red + "Electromaster's God Axe of Power");
+						axeMeta.setLore(supplierNames);
+						axeMeta.setUnbreakable(true);
+						axeMeta.addEnchant(Enchantment.DAMAGE_ALL, 32767, true); // Sharpness
+						axeMeta.addEnchant(Enchantment.DURABILITY, 32767, true); // Unbreaking
+						axeMeta.addEnchant(Enchantment.FIRE_ASPECT, 32767, true); // Fire Aspect
+						axeMeta.addEnchant(Enchantment.MENDING, 32767, true); // Mending
+						axeMeta.addEnchant(Enchantment.SWEEPING_EDGE, 32767, true); // Cleaving affect
+						axe.setItemMeta(axeMeta);
+						((Player) sender).getInventory().addItem(axe);
+						sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory."));
+					}
 				}
 			}
 			return false;
