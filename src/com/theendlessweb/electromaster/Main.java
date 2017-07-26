@@ -117,7 +117,7 @@ public class Main extends JavaPlugin {
 					if((users.get(((Player) sender).getUniqueId()) == null)){
 						ItemStack sword = new ItemStack(Material.DIAMOND_SWORD, 1);
 						ItemMeta swordMeta = sword.getItemMeta();
-						swordMeta.setDisplayName("xxq's Abyssal Blade");
+						swordMeta.setDisplayName("Divine Rapier");
 						swordMeta.setUnbreakable(true);
 						swordMeta.addEnchant(Enchantment.DAMAGE_ALL, 32767, true); // Sharpness
 						swordMeta.addEnchant(Enchantment.DURABILITY, 32767, true); // Unbreaking
@@ -222,6 +222,26 @@ public class Main extends JavaPlugin {
 						sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory."));
 					}
 				}
+			else if(command.getName().equalsIgnoreCase("moar")){
+				Player p = (Player) sender;
+				ItemStack item = p.getInventory().getItemInMainHand();
+				if(sender instanceof Player && args.length == 0){
+						if(p.getInventory().getItemInMainHand() != null){
+							if(item.getAmount() < item.getMaxStackSize() && item.getAmount() != item.getMaxStackSize()){
+								item.setAmount(item.getMaxStackSize());
+							}		
+							if(item.getAmount() == item.getMaxStackSize()){
+								sender.sendMessage(ccErrMsg("The stack in your hand is already full."));
+							}
+						if(p.getInventory().getItemInMainHand() == null){
+							sender.sendMessage(ccErrMsg("You need to have an item in your hand."));
+						}
+						
+					}
+				}else{
+					sender.sendMessage(ccErrMsg("Invalid syntax!"));
+				}
+			}
 			}
 			return false;
 		}
