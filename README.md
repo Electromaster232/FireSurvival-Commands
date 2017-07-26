@@ -8,7 +8,7 @@ CustomCommands is a lightweight plugin designed by xxq and Electromaster to prov
 
 # Installation
 
-Download the CustomCommands.jar file [link here][here] and move it into your /plugins/ folder.
+Download the CustomCommands.jar file [here](link) and move it into your /plugins/ folder.
 
 # Contributing
 
