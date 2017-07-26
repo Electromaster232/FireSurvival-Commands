@@ -141,7 +141,7 @@ public class Main extends JavaPlugin {
 						
 					}
 				}else{
-					sender.sendMessage(ccErrMsg("Invalid syntax!!!"));
+					sender.sendMessage(ccErrMsg("Invalid syntax!"));
 					return false;
 				}
 			}
