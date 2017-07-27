@@ -1,36 +1,46 @@
 main: com.theendlessweb.electromaster.Main
 name: CustomCommands
-version: 1.0
+version: 1.24
 author: xxq/Electromaster
 description: A plugin designed to provide simple item commands for efficiency.
 commands:
   supertnt:
     description: Super TNT
-    usage: /supertnt
+    usage: Usage: /supertnt
     permission: customcommands.supertnt
     permission-message: You don't have the required permission node. Contact staff if you believe this is an error.
   tools:
     description: Get God Tools
-    usage: /tools
+    usage: Usage: /tools
     permission: customcommands.sword
     permission-message: You don't have the required permission node. Contact staff if you believe this is an error.
   eat:
     description: Fill ye hungah.
-    usage: /eat
+    usage: Usage: /eat
     permission: customcommands.eat
     permission-message: You don't have the required permission node. Contact staff if you believe this is an error.
   axe:
     description: Get Electromaster's God Axe
-    usage: /axe
+    usage: Usage: /axe
     permission: customcommands.axe
     permission-message: You don't have the required permission node. Contact staff is you believe this is an error.
   armor:
     description: Get God Armor
-    usage: /armor
+    usage: Usage: /armor
     permission: customcommands.armor
     permission-message: You don't have the required permmission node. Contact staff is you believe this is an error.
   flight:
     description: Gives you Elytra with Fireworks
-    usage: /flight
+    usage: Usage: /flight
     permission: customcommands.flight
+    permission-message: You don't have the required permission node. Contact staff if you believe this is an error.
+  sclean:
+    description: Cleans online player's inventories and enderchest
+    usage: Usage: /sclean
+    permission: customcommands.sclean
+    permission-message: You don't have the required permission node. Contact staff if you believe this is an error.
+  copy:
+    description: Copies the item in your hand the num. of times you specify.
+    usage: Usage: /copy <amount>
+    permission: customcommands.copy
     permission-message: You don't have the required permission node. Contact staff if you believe this is an error.
