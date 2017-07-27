@@ -49,7 +49,7 @@ public class Main extends JavaPlugin {
 		password = "pass";    
 		try {     
 			openConnection();
-			Statement statement = connection.createStatement(); 
+			//Statement statement = connection.createStatement(); 
 			getLogger().info("CustomCommands v" + PLUGIN_VERSION + " enabled.");  
 		}catch (ClassNotFoundException e){
 			e.printStackTrace();
