@@ -36,7 +36,7 @@ public class Main extends JavaPlugin {
 	    private String host, database, username, password;
 	    private int port;
 	    private Map<UUID, Long> users;
-	    public static final String PLUGIN_VERSION = "1.21";
+	    public static final String PLUGIN_VERSION = "1.22";
 	    List<String> supplierNames = Arrays.asList("Given by the gods.");
 
 	@Override
@@ -69,7 +69,7 @@ public class Main extends JavaPlugin {
 				String label,
 				String[] args) {
 			if (command.getName().equalsIgnoreCase("worldnews")) {
-				sender.sendMessage("Â§eYou ran /mycommand!");
+				sender.sendMessage("§eYou ran /mycommand!");
 				return true;
 			}
 			else if(command.getName().equalsIgnoreCase("eat")){
@@ -240,6 +240,39 @@ public class Main extends JavaPlugin {
 					sender.sendMessage(ccErrMsg("Invalid syntax!"));
 					return false;
 				}
+			}
+			else if(command.getName().equalsIgnoreCase("sclean")){
+				if(sender instanceof Player && args.length == 0){
+					for(Player p : this.getServer().getOnlinePlayers()){
+						if(p.getEnderChest().contains(Material.BEDROCK)){
+							p.getEnderChest().remove(Material.BEDROCK);
+							sender.sendMessage(ccMsg("Removed bedrock from " + p.getName() + "'s ender chest."));
+						}
+						if(p.getInventory().contains(Material.BEDROCK)){
+							p.getInventory().remove(Material.BEDROCK);
+							sender.sendMessage(ccMsg("Removed bedrock from " + p.getName() + "'s inventory."));
+						}
+						if(p.getEnderChest().contains(Material.STRUCTURE_BLOCK)){
+							p.getEnderChest().remove(Material.STRUCTURE_BLOCK);
+							sender.sendMessage(ccMsg("Removed structure block(s) from " + p.getName() + "'s ender chest."));
+						}
+						if(p.getInventory().contains(Material.STRUCTURE_BLOCK)){
+							p.getInventory().remove(Material.STRUCTURE_BLOCK);
+							sender.sendMessage(ccMsg("Removed structure block(s) from " + p.getName() + "'s inventory."));
+						}
+						if(p.getEnderChest().contains(Material.COMMAND)){
+							p.getEnderChest().remove(Material.COMMAND);
+							sender.sendMessage(ccMsg("Removed command block(s) from " + p.getName() + "'s ender chest."));
+						}
+						if(p.getInventory().contains(Material.COMMAND)){
+							p.getInventory().remove(Material.COMMAND);
+							sender.sendMessage(ccMsg("Removed command block(s) from " + p.getName() + "'s inventory."));
+						}
+					}
+				}else{
+					sender.sendMessage(ccErrMsg("Invalid syntax! Usage: /sclean"));
+				}
+				
 			}
 			}
 			return false;
