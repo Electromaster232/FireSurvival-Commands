@@ -69,7 +69,7 @@ public class Main extends JavaPlugin {
 			String label,
 			String[] args) {
 		if (command.getName().equalsIgnoreCase("worldnews")) {
-			sender.sendMessage("§eYou ran /mycommand!");
+			sender.sendMessage("Â§eYou ran /mycommand!");
 			return true;
 		}
 		else if(command.getName().equalsIgnoreCase("eat")){
@@ -137,6 +137,7 @@ public class Main extends JavaPlugin {
 					((Player) sender).getInventory().addItem(sword);
 					((Player) sender).getInventory().addItem(pick);
 					sender.sendMessage(ccMsg("Added xxq's Abyssal Blade to your inventory."));
+					return true;
 
 
 				}
@@ -199,18 +200,20 @@ public class Main extends JavaPlugin {
 					((Player) sender).getInventory().addItem(legs);
 					((Player) sender).getInventory().addItem(boots);
 					sender.sendMessage(ccMsg("Added god armor to your inventory."));
-
+					return true;
 
 				} 
 
-			}
+			}else{
+				sender.sendMessage(ccErrMsg("Invalid syntax!"));
+				return false;
 		}
 		else if(command.getName().equalsIgnoreCase("axe")){
 			if(sender instanceof Player && args.length == 0){
 				if((users.get(((Player) sender).getUniqueId()) == null)){
 					ItemStack axe = new ItemStack(Material.DIAMOND_AXE, 1);
 					ItemMeta axeMeta = axe.getItemMeta();
-					axeMeta.setDisplayName("�4Electromaster's God Axe of Power");
+					axeMeta.setDisplayName("§4Electromaster's God Axe of Power");
 					axeMeta.setLore(supplierNames);
 					axeMeta.setUnbreakable(true);
 					axeMeta.addEnchant(Enchantment.DAMAGE_ALL, 32767, true); // Sharpness
@@ -222,8 +225,11 @@ public class Main extends JavaPlugin {
 					axe.setItemMeta(axeMeta);
 					((Player) sender).getInventory().addItem(axe);
 					sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory."));
+					return true;
 				}
-			}
+			}else{
+				sender.sendMessage(ccErrMsg("Invalid syntax!"));
+				return false;
 		}
 
 
@@ -232,7 +238,7 @@ public class Main extends JavaPlugin {
 				if((users.get(((Player) sender).getUniqueId()) == null)){
 					ItemStack elytra = new ItemStack(Material.ELYTRA, 1);
 					ItemMeta elytraMeta = elytra.getItemMeta();
-					elytraMeta.setDisplayName("�bStaff of Flight");
+					elytraMeta.setDisplayName("§bStaff of Flight");
 					elytraMeta.setLore(supplierNames);
 					elytraMeta.setUnbreakable(true);
 					elytraMeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 32767, true); // Sharpness
@@ -244,8 +250,11 @@ public class Main extends JavaPlugin {
 					ItemStack firework = new ItemStack(Material.FIREWORK, 64);
 					((Player) sender).getInventory().addItem(firework);
 					sender.sendMessage(ccMsg("Added Staff of Flight to your inventory."));
+					return true;
 				}
-			}
+			}else{
+				sender.sendMessage(ccErrMsg("Invalid syntax!"));
+				return false;
 		}
 
 
