@@ -203,59 +203,59 @@ public class Main extends JavaPlugin {
 
 				} 
 
-
 			}
-			else if(command.getName().equalsIgnoreCase("axe")){
-				sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory. part 1"));
-				if(sender instanceof Player && args.length == 0){
-					sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory. part 2"));
-					if((users.get(((Player) sender).getUniqueId()) == null)){
-						sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory. part 3"));
-						ItemStack axe = new ItemStack(Material.DIAMOND_AXE, 1);
-						ItemMeta axeMeta = axe.getItemMeta();
-						axeMeta.setDisplayName("§4Electromaster's God Axe of Power");
-						sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory. part 4"));
-						axeMeta.setLore(supplierNames);
-						axeMeta.setUnbreakable(true);
-						axeMeta.addEnchant(Enchantment.DAMAGE_ALL, 32767, true); // Sharpness
-						sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory. part 5"));
-						axeMeta.addEnchant(Enchantment.DURABILITY, 32767, true); // Unbreaking
-						axeMeta.addEnchant(Enchantment.FIRE_ASPECT, 32767, true); // Fire Aspect
-						axeMeta.addEnchant(Enchantment.MENDING, 32767, true); // Mending
-						sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory. part 6"));
-						axeMeta.addEnchant(Enchantment.SWEEPING_EDGE, 32767, true); // Cleaving affect
-						axeMeta.addEnchant(Enchantment.DIG_SPEED, 32767, true);
-						axe.setItemMeta(axeMeta);
-						sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory. part 7"));
-						((Player) sender).getInventory().addItem(axe);
-						sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory."));
-					}
-				}
-			}
-
-
-			else if(command.getName().equalsIgnoreCase("flight")){
-				if(sender instanceof Player && args.length == 0){
-					if((users.get(((Player) sender).getUniqueId()) == null)){
-						ItemStack elytra = new ItemStack(Material.ELYTRA, 1);
-						ItemMeta elytraMeta = elytra.getItemMeta();
-						elytraMeta.setDisplayName("§bStaff of Flight");
-						elytraMeta.setLore(supplierNames);
-						elytraMeta.setUnbreakable(true);
-						elytraMeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 32767, true); // Sharpness
-						elytraMeta.addEnchant(Enchantment.DURABILITY, 32767, true); // Unbreaking
-						elytraMeta.addEnchant(Enchantment.THORNS, 32767, true); // Fire Aspect
-						elytraMeta.addEnchant(Enchantment.MENDING, 32767, true); // Mending
-						elytra.setItemMeta(elytraMeta);
-						((Player) sender).getInventory().addItem(elytra);
-						ItemStack firework = new ItemStack(Material.FIREWORK, 64);
-						((Player) sender).getInventory().addItem(firework);
-						sender.sendMessage(ccMsg("Added Staff of Flight to your inventory."));
-					}
-				}
-			}
-
 		}
+		else if(command.getName().equalsIgnoreCase("axe")){
+			sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory. part 1"));
+			if(sender instanceof Player && args.length == 0){
+				sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory. part 2"));
+				if((users.get(((Player) sender).getUniqueId()) == null)){
+					sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory. part 3"));
+					ItemStack axe = new ItemStack(Material.DIAMOND_AXE, 1);
+					ItemMeta axeMeta = axe.getItemMeta();
+					axeMeta.setDisplayName("§4Electromaster's God Axe of Power");
+					sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory. part 4"));
+					axeMeta.setLore(supplierNames);
+					axeMeta.setUnbreakable(true);
+					axeMeta.addEnchant(Enchantment.DAMAGE_ALL, 32767, true); // Sharpness
+					sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory. part 5"));
+					axeMeta.addEnchant(Enchantment.DURABILITY, 32767, true); // Unbreaking
+					axeMeta.addEnchant(Enchantment.FIRE_ASPECT, 32767, true); // Fire Aspect
+					axeMeta.addEnchant(Enchantment.MENDING, 32767, true); // Mending
+					sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory. part 6"));
+					axeMeta.addEnchant(Enchantment.SWEEPING_EDGE, 32767, true); // Cleaving affect
+					axeMeta.addEnchant(Enchantment.DIG_SPEED, 32767, true);
+					axe.setItemMeta(axeMeta);
+					sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory. part 7"));
+					((Player) sender).getInventory().addItem(axe);
+					sender.sendMessage(ccMsg("Added Electromaster's God Axe of Power to your inventory."));
+				}
+			}
+		}
+
+
+		else if(command.getName().equalsIgnoreCase("flight")){
+			if(sender instanceof Player && args.length == 0){
+				if((users.get(((Player) sender).getUniqueId()) == null)){
+					ItemStack elytra = new ItemStack(Material.ELYTRA, 1);
+					ItemMeta elytraMeta = elytra.getItemMeta();
+					elytraMeta.setDisplayName("§bStaff of Flight");
+					elytraMeta.setLore(supplierNames);
+					elytraMeta.setUnbreakable(true);
+					elytraMeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 32767, true); // Sharpness
+					elytraMeta.addEnchant(Enchantment.DURABILITY, 32767, true); // Unbreaking
+					elytraMeta.addEnchant(Enchantment.THORNS, 32767, true); // Fire Aspect
+					elytraMeta.addEnchant(Enchantment.MENDING, 32767, true); // Mending
+					elytra.setItemMeta(elytraMeta);
+					((Player) sender).getInventory().addItem(elytra);
+					ItemStack firework = new ItemStack(Material.FIREWORK, 64);
+					((Player) sender).getInventory().addItem(firework);
+					sender.sendMessage(ccMsg("Added Staff of Flight to your inventory."));
+				}
+			}
+		}
+
+
 
 
 
