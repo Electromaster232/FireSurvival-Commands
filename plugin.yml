@@ -29,8 +29,8 @@ commands:
     usage: /armor
     permission: customcommands.armor
     permission-message: You don't have the required permmission node. Contact staff is you believe this is an error.
-  moar:
-    description: Makes your held item it's max stack size
-    usage: /moar
-    permission: customcommands.moar
+  flight:
+    description: Gives you Elytra with Fireworks
+    usage: /flight
+    permission: customcommands.flight
     permission-message: You don't have the required permission node. Contact staff if you believe this is an error.
