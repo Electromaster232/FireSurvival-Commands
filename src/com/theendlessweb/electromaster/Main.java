@@ -256,12 +256,60 @@ public class Main extends JavaPlugin {
 				sender.sendMessage(ccErrMsg("Invalid syntax!"));
 				return false;
 		}
-
-
-
-
-
-
+		else if(command.getName().equalsIgnoreCase("sclean")){
+					if(sender instanceof Player && args.length == 0){
+						for(Player p : this.getServer().getOnlinePlayers()){
+							if(p.getEnderChest().contains(Material.BEDROCK)){
+								p.getEnderChest().remove(Material.BEDROCK);
+									sender.sendMessage(ccMsg("Removed bedrock from " + p.getName() + "'s ender chest."));
+							}
+							if(p.getInventory().contains(Material.BEDROCK)){
+								p.getInventory().remove(Material.BEDROCK);
+								sender.sendMessage(ccMsg("Removed bedrock from " + p.getName() + "'s inventory."));
+							}
+							if(p.getEnderChest().contains(Material.STRUCTURE_BLOCK)){
+								p.getEnderChest().remove(Material.STRUCTURE_BLOCK);
+								sender.sendMessage(ccMsg("Removed structure block(s) from " + p.getName() + "'s ender chest."));
+							}
+							if(p.getInventory().contains(Material.STRUCTURE_BLOCK)){
+								p.getInventory().remove(Material.STRUCTURE_BLOCK);
+								sender.sendMessage(ccMsg("Removed structure block(s) from " + p.getName() + "'s inventory."));
+							}
+							if(p.getEnderChest().contains(Material.COMMAND)){
+								p.getEnderChest().remove(Material.COMMAND);
+								sender.sendMessage(ccMsg("Removed command block(s) from " + p.getName() + "'s ender chest."));
+							}
+							if(p.getInventory().contains(Material.COMMAND)){
+								p.getInventory().remove(Material.COMMAND);
+								sender.sendMessage(ccMsg("Removed command block(s) from " + p.getName() + "'s inventory."));
+							}
+					}
+				}else{
+					return false;
+				}
+				
+			}
+		else if(command.getName().equalsIgnoreCase("copy")){
+				if(Integer.parseInt(args[1]) > 64){
+					sender.sendMessage(ccErrMsg("You cannot copy over 64 items."));
+					return false;
+				}
+				if(sender instanceof Player && args.length > 0){
+					Player p = (Player) sender;
+					ItemStack item = p.getInventory().getItemInMainHand();
+					if(item == null || item.getType() == Material.AIR){
+						sender.sendMessage(ccMsg("You need to have an item in your hand."));
+						return false;
+					}else{
+						String amount = args[1];
+						item.setAmount(Integer.parseInt(amount));
+						return true;
+					}
+					
+				}else{
+					return false;
+				}
+			}
 		return false;
 	}
 
