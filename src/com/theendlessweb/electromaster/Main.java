@@ -247,34 +247,9 @@ public class Main extends JavaPlugin {
 								}
 							}
 						}
-						else if(command.getName().equalsIgnoreCase("moar")){
-							Player p = (Player) sender;
-							if(sender instanceof Player && args.length == 0){
-								if(p.getInventory().getItemInMainHand().getType() != Material.AIR){
-
-									if(item.getAmount() < item.getMaxStackSize() && item.getAmount() != item.getMaxStackSize()){
-										item.setAmount(item.getMaxStackSize());
-									}		
-									if(item.getAmount() == item.getMaxStackSize()){
-										sender.sendMessage(ccErrMsg("The stack in your hand is already full."));
-									}
-
-
-									if(p.getInventory().getItemInMainHand() == null){
-										sender.sendMessage(ccErrMsg("You need to have an item in your hand."));
-										return false;
-
-									}else{
-										p.getInventory().getItemInMainHand().setAmount(p.getInventory().getItemInMainHand().getMaxStackSize());
-									}
-
-								}
-							}else{
-								sender.sendMessage(ccErrMsg("Invalid syntax!"));
-								return false;
-							}
+						
 						}
-					}
+					
 				
 			
 				
