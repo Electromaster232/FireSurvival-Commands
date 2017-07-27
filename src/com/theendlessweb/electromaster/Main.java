@@ -202,42 +202,7 @@ public class Main extends JavaPlugin {
 
 
 				} 
-				else if(command.getName().equalsIgnoreCase("tools")){
-					if(sender instanceof Player && args.length == 0){
-						if((users.get(((Player) sender).getUniqueId()) == null)){
-							ItemStack sword = new ItemStack(Material.DIAMOND_SWORD, 1);
-							ItemMeta swordMeta = sword.getItemMeta();
-							swordMeta.setDisplayName("Divine Rapier");
-							swordMeta.setUnbreakable(true);
-							swordMeta.addEnchant(Enchantment.DAMAGE_ALL, 32767, true); // Sharpness
-							swordMeta.addEnchant(Enchantment.DURABILITY, 32767, true); // Unbreaking
-							swordMeta.addEnchant(Enchantment.FIRE_ASPECT, 32767, true); // Fire Aspect
-							swordMeta.addEnchant(Enchantment.MENDING, 32767, true); // Mending
-							swordMeta.addEnchant(Enchantment.SWEEPING_EDGE, 32767, true); // Cleaving affect
-							ItemStack pick = new ItemStack(Material.DIAMOND_PICKAXE, 1);
-							ItemMeta pickMeta = pick.getItemMeta();
-							pickMeta.setDisplayName("Hoarfrost");
-							pickMeta.setUnbreakable(true);
-							pickMeta.addEnchant(Enchantment.DIG_SPEED, 5, true);
-							pickMeta.addEnchant(Enchantment.DURABILITY, 3, true); // Unbreaking
-							pickMeta.addEnchant(Enchantment.SILK_TOUCH, 1, true);
-							pickMeta.addEnchant(Enchantment.MENDING, 1, true);
-							sword.setItemMeta(swordMeta);
-							pick.setItemMeta(pickMeta);
-							((Player) sender).getInventory().addItem(sword);
-							((Player) sender).getInventory().addItem(pick);
-							sender.sendMessage(ccMsg("Added god tools to your inventory."));
-
-
-						}
-					}else{
-						sender.sendMessage(ccErrMsg("Invalid syntax!"));
-						return false;
-
-					}
-				}else{
-					sender.sendMessage(ccErrMsg("Invalid syntax!"));
-				}
+				
 
 			}
 			else if(command.getName().equalsIgnoreCase("axe")){
@@ -261,66 +226,7 @@ public class Main extends JavaPlugin {
 				}
 			}
 
-						else if(command.getName().equalsIgnoreCase("armor")){
-							if(sender instanceof Player && args.length == 0){
-								if((users.get(((Player) sender).getUniqueId()) == null)){
-									ItemStack helm = new ItemStack(Material.DIAMOND_HELMET, 1);
-									ItemStack chest = new ItemStack(Material.DIAMOND_CHESTPLATE, 1);
-									ItemStack legs = new ItemStack(Material.DIAMOND_LEGGINGS, 1);
-									ItemStack boots = new ItemStack(Material.DIAMOND_BOOTS, 1);
-
-									ItemMeta helmMeta = helm.getItemMeta();
-									ItemMeta chestMeta = chest.getItemMeta();
-									ItemMeta legsMeta = legs.getItemMeta();
-									ItemMeta bootsMeta = boots.getItemMeta();
-
-									/* Names */
-									helmMeta.setDisplayName("Veil of Discord");
-									chestMeta.setDisplayName("Assault Cuirass");
-									legsMeta.setDisplayName("Shiva's Guard");
-									bootsMeta.setDisplayName("Boots of Travel");
-
-									/* Protection */
-									helmMeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
-									chestMeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
-									legsMeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
-									bootsMeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 4, true);
-
-									/* Unbreaking */
-									helmMeta.addEnchant(Enchantment.DURABILITY, 3, true);
-									chestMeta.addEnchant(Enchantment.DURABILITY, 3, true);
-									legsMeta.addEnchant(Enchantment.DURABILITY, 3, true);
-									bootsMeta.addEnchant(Enchantment.DURABILITY, 3, true);
-
-									/* Mending */
-									helmMeta.addEnchant(Enchantment.MENDING, 1, true);
-									chestMeta.addEnchant(Enchantment.MENDING, 1, true);
-									legsMeta.addEnchant(Enchantment.MENDING, 1, true);
-									bootsMeta.addEnchant(Enchantment.MENDING, 1, true);
-
-									/* Misc */
-									helmMeta.addEnchant(Enchantment.OXYGEN, 3, true);
-									helmMeta.addEnchant(Enchantment.WATER_WORKER, 1, true);
-									bootsMeta.addEnchant(Enchantment.DEPTH_STRIDER, 3, true);
-									bootsMeta.addEnchant(Enchantment.PROTECTION_FALL, 4, true);
-
-									helm.setItemMeta(helmMeta);
-									chest.setItemMeta(chestMeta);
-									legs.setItemMeta(legsMeta);
-									boots.setItemMeta(bootsMeta);
-
-									((Player) sender).getInventory().addItem(helm);
-									((Player) sender).getInventory().addItem(chest);
-									((Player) sender).getInventory().addItem(legs);
-									((Player) sender).getInventory().addItem(boots);
-									sender.sendMessage(ccMsg("Added god armor to your inventory."));
-								}
-							}else{
-								sender.sendMessage(ccErrMsg("Invalid syntax!"));
-								return false;
-
-							}
-						}
+						
 						else if(command.getName().equalsIgnoreCase("flight")){
 							if(sender instanceof Player && args.length == 0){
 								if((users.get(((Player) sender).getUniqueId()) == null)){
