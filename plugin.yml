@@ -2,7 +2,7 @@ main: com.theendlessweb.electromaster.Main
 name: CustomCommands
 version: 1.0
 author: xxq/Electromaster
-description: A plugin designed to give simple item features and other simple features.
+description: A plugin designed to provide simple item commands for efficiency.
 commands:
   supertnt:
     description: Super TNT
