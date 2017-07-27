@@ -129,14 +129,14 @@ public class Main extends JavaPlugin {
 						pickMeta.setDisplayName("Hoarfrost");
 						pickMeta.setUnbreakable(true);
 						pickMeta.addEnchant(Enchantment.DIG_SPEED, 5, true);
-						pickMeta.addEnchant(Enchantment.DURABILITY, 3, true);
+						pickMeta.addEnchant(Enchantment.DURABILITY, 3, true); // Unbreaking
 						pickMeta.addEnchant(Enchantment.SILK_TOUCH, 1, true);
 						pickMeta.addEnchant(Enchantment.MENDING, 1, true);
 						sword.setItemMeta(swordMeta);
 						pick.setItemMeta(pickMeta);
 						((Player) sender).getInventory().addItem(sword);
 						((Player) sender).getInventory().addItem(pick);
-						sender.sendMessage(ccMsg("Added xxq's Abyssal Blade to your inventory."));
+						sender.sendMessage(ccMsg("Added god tools to your inventory."));
 						
 						
 					}
@@ -201,6 +201,7 @@ public class Main extends JavaPlugin {
 					}
 				}else{
 					sender.sendMessage(ccErrMsg("Invalid syntax!"));
+					return false;
 				}
 			}
 			else if(command.getName().equalsIgnoreCase("axe")){
@@ -224,22 +225,20 @@ public class Main extends JavaPlugin {
 				}
 			else if(command.getName().equalsIgnoreCase("moar")){
 				Player p = (Player) sender;
-				ItemStack item = p.getInventory().getItemInMainHand();
 				if(sender instanceof Player && args.length == 0){
-						if(p.getInventory().getItemInMainHand().getType() != Material.AIR){
-							if(item.getAmount() < item.getMaxStackSize() && item.getAmount() != item.getMaxStackSize()){
-								item.setAmount(item.getMaxStackSize());
-							}		
-							if(item.getAmount() == item.getMaxStackSize()){
-								sender.sendMessage(ccErrMsg("The stack in your hand is already full."));
-							}
+					if(p.getInventory().getItemInMainHand().getType() != Material.AIR){
 						if(p.getInventory().getItemInMainHand() == null){
 							sender.sendMessage(ccErrMsg("You need to have an item in your hand."));
+							return false;
+						
+						}else{
+							p.getInventory().getItemInMainHand().setAmount(p.getInventory().getItemInMainHand().getMaxStackSize());
 						}
 						
 					}
 				}else{
 					sender.sendMessage(ccErrMsg("Invalid syntax!"));
+					return false;
 				}
 			}
 			}
