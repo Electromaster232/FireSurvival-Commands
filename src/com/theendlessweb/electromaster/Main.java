@@ -36,7 +36,7 @@ public class Main extends JavaPlugin {
 	private String host, database, username, password;
 	private int port;
 	private Map<UUID, Long> users;
-	public static final String PLUGIN_VERSION = "1.21";
+	public static final String PLUGIN_VERSION = "1.23";
 	List<String> supplierNames = Arrays.asList("Given by the gods.");
 
 	@Override
