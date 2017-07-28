@@ -15,12 +15,12 @@ commands:
     permission: customcommands.sword
     permission-message: You don't have the required permission node. Contact staff if you believe this is an error.
   eat:
-    description: Fill ye hungah.
+    description: Fills hunger/saturation/health.
     usage: Usage: /eat
     permission: customcommands.eat
     permission-message: You don't have the required permission node. Contact staff if you believe this is an error.
   axe:
-    description: Get Electromaster's God Axe
+    description: Gives an axe with level 32767 enchantments
     usage: Usage: /axe
     permission: customcommands.axe
     permission-message: You don't have the required permission node. Contact staff is you believe this is an error.
@@ -35,7 +35,7 @@ commands:
     permission: customcommands.flight
     permission-message: You don't have the required permission node. Contact staff if you believe this is an error.
   sclean:
-    description: Cleans online player's inventories and enderchest
+    description: Cleans illegal items from online player's inventories and enderchests
     usage: Usage: /sclean
     permission: customcommands.sclean
     permission-message: You don't have the required permission node. Contact staff if you believe this is an error.
