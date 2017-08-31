@@ -44,3 +44,8 @@ commands:
     usage: Usage: /copy <amount>
     permission: customcommands.copy
     permission-message: You don't have the required permission node. Contact staff if you believe this is an error.
+  magicskull:
+    description: Gives you a magical copy of your skull.
+    usage: Usage: /magicskull
+    permission: customcommands.magic
+    permission-message: You don't have the required permission node. Contact staff if you believe this is an error.
