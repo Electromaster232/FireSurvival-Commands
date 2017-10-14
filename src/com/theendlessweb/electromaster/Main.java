@@ -12,7 +12,6 @@ import java.util.UUID;
 
 import org.bukkit.Material;
 import org.bukkit.Server;
-import org.bukkit.SkullType;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
@@ -21,7 +20,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import net.md_5.bungee.api.ChatColor;
@@ -39,7 +37,6 @@ public class Main extends JavaPlugin {
 	private int port;
 	private Map<UUID, Long> users;
 	public static final String PLUGIN_VERSION = "1.24";
-	// Used for Lores
 	List<String> supplierNames = Arrays.asList("Given by the gods.");
 
 	@Override
@@ -210,25 +207,7 @@ public class Main extends JavaPlugin {
 			}else{
 				sender.sendMessage(ccErrMsg("Invalid syntax!"));
 				return false;
-			}
 		}
-		else if(command.getName().equalsIgnoreCase("magicskull")) {
-			if((users.get(((Player) sender).getUniqueId()) == null)){
-				final ItemStack skull = new ItemStack(Material.SKULL_ITEM, 1, (short) SkullType.PLAYER.ordinal());
-				final SkullMeta skullMeta = (SkullMeta) skull.getItemMeta();
-				skullMeta.setUnbreakable(true);
-				skullMeta.addEnchant(Enchantment.DAMAGE_ALL, 32767, true); // Sharpness
-				skullMeta.addEnchant(Enchantment.DURABILITY, 32767, true); // Unbreaking
-				skullMeta.addEnchant(Enchantment.FIRE_ASPECT, 32767, true); // Fire Aspect
-				skullMeta.addEnchant(Enchantment.MENDING, 32767, true); // Mending
-				skullMeta.addEnchant(Enchantment.SWEEPING_EDGE, 32767, true); // Cleaving affect
-				skullMeta.addEnchant(Enchantment.DIG_SPEED, 32767, true);
-				skull.setItemMeta(skullMeta);
-				((Player) sender).getInventory().addItem(skull);
-				return true;
-			}
-		}
-
 		else if(command.getName().equalsIgnoreCase("axe")){
 			if(sender instanceof Player && args.length == 0){
 				if((users.get(((Player) sender).getUniqueId()) == null)){
@@ -251,7 +230,6 @@ public class Main extends JavaPlugin {
 			}else{
 				sender.sendMessage(ccErrMsg("Invalid syntax!"));
 				return false;
-			}
 		}
 
 
@@ -277,62 +255,61 @@ public class Main extends JavaPlugin {
 			}else{
 				sender.sendMessage(ccErrMsg("Invalid syntax!"));
 				return false;
-			}
 		}
 		else if(command.getName().equalsIgnoreCase("sclean")){
-			if(sender instanceof Player && args.length == 0){
-				for(Player p : this.getServer().getOnlinePlayers()){
-					if(p.getEnderChest().contains(Material.BEDROCK)){
-						p.getEnderChest().remove(Material.BEDROCK);
-						sender.sendMessage(ccMsg("Removed bedrock from " + p.getName() + "'s ender chest."));
+					if(sender instanceof Player && args.length == 0){
+						for(Player p : this.getServer().getOnlinePlayers()){
+							if(p.getEnderChest().contains(Material.BEDROCK)){
+								p.getEnderChest().remove(Material.BEDROCK);
+									sender.sendMessage(ccMsg("Removed bedrock from " + p.getName() + "'s ender chest."));
+							}
+							if(p.getInventory().contains(Material.BEDROCK)){
+								p.getInventory().remove(Material.BEDROCK);
+								sender.sendMessage(ccMsg("Removed bedrock from " + p.getName() + "'s inventory."));
+							}
+							if(p.getEnderChest().contains(Material.STRUCTURE_BLOCK)){
+								p.getEnderChest().remove(Material.STRUCTURE_BLOCK);
+								sender.sendMessage(ccMsg("Removed structure block(s) from " + p.getName() + "'s ender chest."));
+							}
+							if(p.getInventory().contains(Material.STRUCTURE_BLOCK)){
+								p.getInventory().remove(Material.STRUCTURE_BLOCK);
+								sender.sendMessage(ccMsg("Removed structure block(s) from " + p.getName() + "'s inventory."));
+							}
+							if(p.getEnderChest().contains(Material.COMMAND)){
+								p.getEnderChest().remove(Material.COMMAND);
+								sender.sendMessage(ccMsg("Removed command block(s) from " + p.getName() + "'s ender chest."));
+							}
+							if(p.getInventory().contains(Material.COMMAND)){
+								p.getInventory().remove(Material.COMMAND);
+								sender.sendMessage(ccMsg("Removed command block(s) from " + p.getName() + "'s inventory."));
+							}
 					}
-					if(p.getInventory().contains(Material.BEDROCK)){
-						p.getInventory().remove(Material.BEDROCK);
-						sender.sendMessage(ccMsg("Removed bedrock from " + p.getName() + "'s inventory."));
-					}
-					if(p.getEnderChest().contains(Material.STRUCTURE_BLOCK)){
-						p.getEnderChest().remove(Material.STRUCTURE_BLOCK);
-						sender.sendMessage(ccMsg("Removed structure block(s) from " + p.getName() + "'s ender chest."));
-					}
-					if(p.getInventory().contains(Material.STRUCTURE_BLOCK)){
-						p.getInventory().remove(Material.STRUCTURE_BLOCK);
-						sender.sendMessage(ccMsg("Removed structure block(s) from " + p.getName() + "'s inventory."));
-					}
-					if(p.getEnderChest().contains(Material.COMMAND)){
-						p.getEnderChest().remove(Material.COMMAND);
-						sender.sendMessage(ccMsg("Removed command block(s) from " + p.getName() + "'s ender chest."));
-					}
-					if(p.getInventory().contains(Material.COMMAND)){
-						p.getInventory().remove(Material.COMMAND);
-						sender.sendMessage(ccMsg("Removed command block(s) from " + p.getName() + "'s inventory."));
-					}
-				}
-			}else{
-				return false;
-			}
-
-		}
-		else if(command.getName().equalsIgnoreCase("copy")){
-			if(Integer.parseInt(args[1]) > 64){
-				sender.sendMessage(ccErrMsg("You cannot copy over 64 items."));
-				return false;
-			}
-			if(sender instanceof Player && args.length > 0){
-				Player p = (Player) sender;
-				ItemStack item = p.getInventory().getItemInMainHand();
-				if(item == null || item.getType() == Material.AIR){
-					sender.sendMessage(ccMsg("You need to have an item in your hand."));
-					return false;
 				}else{
-					String amount = args[1];
-					item.setAmount(Integer.parseInt(amount));
-					return true;
+					return false;
 				}
-
-			}else{
-				return false;
+				
 			}
-		}
+		else if(command.getName().equalsIgnoreCase("copy")){
+				if(Integer.parseInt(args[1]) > 64){
+					sender.sendMessage(ccErrMsg("You cannot copy over 64 items."));
+					return false;
+				}
+				if(sender instanceof Player && args.length > 0){
+					Player p = (Player) sender;
+					ItemStack item = p.getInventory().getItemInMainHand();
+					if(item == null || item.getType() == Material.AIR){
+						sender.sendMessage(ccMsg("You need to have an item in your hand."));
+						return false;
+					}else{
+						String amount = args[1];
+						item.setAmount(Integer.parseInt(amount));
+						return true;
+					}
+					
+				}else{
+					return false;
+				}
+			}
 		return false;
 	}
 
@@ -360,4 +337,3 @@ public class Main extends JavaPlugin {
 
 
 }
-
